@@ -88,21 +88,16 @@
                 }
                 case "rarityFilter": {
                     const rarityNum = getRarityNum(name.Rarities, filter.InputValues[2]);
-                    if (rarityNum === null) {
-                        orValues[filter.Type] ||= false;
-                    }
-                    else {
-                        switch (filter.InputValues[0]) {
-                            case "<":
-                                orValues[filter.Type] ||= rarityNum < filter.InputValues[1];
-                                break;
-                            case ">":
-                                orValues[filter.Type] ||= rarityNum > filter.InputValues[1];
-                                break;
-                            case "=":
-                                orValues[filter.Type] ||= rarityNum === filter.InputValues[1];
-                                break;
-                        }
+                    switch (filter.InputValues[0]) {
+                        case "<":
+                            orValues[filter.Type] ||= rarityNum < filter.InputValues[1];
+                            break;
+                        case ">":
+                            orValues[filter.Type] ||= rarityNum > filter.InputValues[1];
+                            break;
+                        case "=":
+                            orValues[filter.Type] ||= rarityNum === filter.InputValues[1];
+                            break;
                     }
                     break;
                 }
@@ -148,24 +143,19 @@
                 }
                 case "rarityAndFilter": {
                     const rarityNum = getRarityNum(name.Rarities, filter.InputValues[2]);
-                    if (rarityNum === null) {
-                        orValues[filter.Type] ||= false;
-                    }
-                    else {
-                        switch (filter.InputValues[0]) {
-                            case "<":
-                                if (!(rarityNum < filter.InputValues[1]))
-                                    return false;
-                                break;
-                            case ">":
-                                if (!(rarityNum > filter.InputValues[1]))
-                                    return false;
-                                break;
-                            case "=":
-                                if (!(rarityNum === filter.InputValues[1]))
-                                    return false;
-                                break;
-                        }
+                    switch (filter.InputValues[0]) {
+                        case "<":
+                            if (!(rarityNum < filter.InputValues[1]))
+                                return false;
+                            break;
+                        case ">":
+                            if (!(rarityNum > filter.InputValues[1]))
+                                return false;
+                            break;
+                        case "=":
+                            if (!(rarityNum === filter.InputValues[1]))
+                                return false;
+                            break;
                     }
                     break;
                 }
